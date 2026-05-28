@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: SEU-USUARIO/moduhub-site   # ← substitua pelo seu usuário GitHub
+  repo: moduhub/mh-website
   branch: main
 
 # Pasta onde as imagens enviadas pelo CMS ficam salvas
