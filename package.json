@@ -9,6 +9,10 @@
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.3",
-    "astro": "^5.18.2"
+    "astro": "^5.18.2",
+    "netlify-identity-widget": "^2.0.3"
+  },
+  "devDependencies": {
+    "@types/netlify-identity-widget": "^1.9.7"
   }
 }
