@@ -1,0 +1,211 @@
+---
+import Base from '../layouts/Base.astro';
+
+---
+
+<Base
+  title="Serviços de P&D"
+  description="ModuHub oferece serviços de P&D em eletrônica embarcada — desde a pesquisa inicial até o protótipo comercial. IoT, RF, instrumentação de precisão e projeto de PCB."
+  canonical="/servicos"
+>
+
+  <div class="page-hero">
+    <div class="container">
+      <span class="label-secao">P&D sob demanda</span>
+      <h1>Do briefing ao<br/>protótipo funcional</h1>
+      <p class="page-hero__desc">
+        Nossa equipe está disponível para auxiliar empresas e institutos desde a etapa
+        de pesquisa inicial até a prototipagem a nível comercial — hardware, firmware e software.
+      </p>
+    </div>
+  </div>
+
+  <!-- O que fazemos -->
+  <section>
+    <div class="container">
+      <span class="label-secao">Capacidades</span>
+      <h2>Áreas de atuação técnica</h2>
+
+      <div class="grid-2 servicos__caps" style="margin-top:2.5rem">
+
+        <div class="card">
+          <h3>Projeto de PCB &amp; Hardware</h3>
+          <p>Projeto de placas de circuito impresso baseadas no estado da arte, do esquemático ao layout. Integração de componentes SMD e PTH, antenas, RF e mecânica (SolidWorks).</p>
+          <ul class="servicos__lista">
+            <li>Altium Designer — licença permanente</li>
+            <li>SolidWorks — integração eletromecânica</li>
+            <li>Montagem manual SMD/PTH</li>
+            <li>Fluxo de Design for Testability</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Rádiofrequência &amp; IoT</h3>
+          <p>Projeto, prototipagem e caracterização de sistemas RF. Sub-1GHz, Bluetooth LE, IEEE 802.15.4g, LoRa e protocolos customizados.</p>
+          <ul class="servicos__lista">
+            <li>Analisador de espectro em tempo real com VNA integrado (9 kHz – 3 GHz)</li>
+            <li>Parâmetros S11, S21 e Distance-to-Fault</li>
+            <li>Projeto de antenas cerâmicas e customizadas</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Firmware &amp; Software Embarcado</h3>
+          <p>Desenvolvimento de firmware em C/C++ para microcontroladores e SoCs. Drivers, protocolos de comunicação, algoritmos de sinal e sistemas operacionais de tempo real.</p>
+          <ul class="servicos__lista">
+            <li>Zephyr RTOS</li>
+            <li>Algoritmos CORDIC e filtros digitais</li>
+            <li>Criptografia embarcada (curva elíptica)</li>
+            <li>OTA e gerenciamento de dispositivos</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Instrumentação de Precisão</h3>
+          <p>Front-ends analógicos de baixo ruído, ADCs especializados, voltametria e espectroscopia de impedância eletroquímica para aplicações em saúde, energia e indústria.</p>
+          <ul class="servicos__lista">
+            <li>Operações em escala de nanoampère</li>
+            <li>Osciloscópio de sinal misto — 350 MHz, 8 GSa/s com analisador lógico integrado</li>
+            <li>Laboratório de química próprio</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Design de Circuitos Integrados</h3>
+          <p>Projeto e verificação de blocos analógicos, digitais e de RF em tecnologia CMOS 130nm. Fluxo completo open-source com tapeout já realizado.</p>
+          <ul class="servicos__lista">
+            <li>Xschem, Ngspice, Magic, KLayout, OpenLane</li>
+            <li>SKY130 PDK e SG13G2 (IHP BiCMOS)</li>
+            <li>Kits FPGA Intel/Altera para prototipagem</li>
+            <li>Design analógico assistido por IA</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Prototipagem &amp; Fabricação</h3>
+          <p>Infraestrutura para fabricação de lotes piloto com segurança jurídica em sede própria regularizada para operação industrial de pequeno porte.</p>
+          <ul class="servicos__lista">
+            <li>Sede de ~70 m² regularizada para uso industrial</li>
+            <li>Solda SMD, ar quente, porta-stencil</li>
+            <li>Impressão 3D e fresagem de metais macios</li>
+            <li>Fixture de teste funcional pass/fail</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Como trabalhamos -->
+  <section>
+    <div class="container">
+      <span class="label-secao">Processo</span>
+      <h2>Como trabalhamos com parceiros</h2>
+
+      <div class="processo__steps" style="margin-top:2.5rem">
+        {[
+          { num: '01', titulo: 'Entendimento do problema', desc: 'Reunião técnica para mapeamento de requisitos, restrições e objetivos do projeto.' },
+          { num: '02', titulo: 'Proposta técnica', desc: 'Documento detalhando escopo, cronograma, orçamento e entregáveis esperados.' },
+          { num: '03', titulo: 'Desenvolvimento iterativo', desc: 'Ciclos curtos com entregas parciais, testes funcionais e revisões com o cliente.' },
+          { num: '04', titulo: 'Prototipagem e validação', desc: 'Fabricação de protótipos físicos e validação em ambiente representativo de uso.' },
+          { num: '05', titulo: 'Lote piloto', desc: 'Suporte até a primeira série de produção, incluindo documentação técnica completa.' },
+        ].map(s => (
+          <div class="card processo__step">
+            <div class="processo__num">{s.num}</div>
+            <div>
+              <h3>{s.titulo}</h3>
+              <p>{s.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-final">
+    <div class="container cta-final__inner">
+      <div>
+        <h2>Tem um projeto para desenvolver?</h2>
+        <p>Agende uma reunião técnica para discutir seu projeto sem compromisso.</p>
+      </div>
+      <div class="cta-final__acoes">
+        <a href="mailto:contato@moduhub.com" class="btn btn--primario">contato@moduhub.com</a>
+        <a href="#" class="whatsapp-link btn btn--outline" data-encoded="bzFkOXk2MDQwMzk2">WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+<script>
+  // Decodificar WhatsApp protegido contra bots
+  document.querySelectorAll('.whatsapp-link').forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const encoded = link.getAttribute('data-encoded');
+      const decoded = atob(encoded); // base64 decode
+      const phone = decoded.replace('bz', '55'); // decodificar prefixo
+      link.href = `https://wa.me/${phone}`;
+      link.textContent = `(47) 9${decoded.slice(3, 8)}-${decoded.slice(8)}`;
+      link.target = '_blank';
+      link.rel = 'noopener';
+      link.click();
+    });
+  });
+</script>
+
+</Base>
+
+<style>
+.page-hero {
+  padding: 10rem 0 5rem;
+  background: linear-gradient(180deg, rgba(0,194,255,0.05) 0%, transparent 100%);
+  border-bottom: 1px solid var(--cor-borda);
+}
+.page-hero__desc { max-width: 600px; font-size: 1.1rem; margin-top: 1.25rem; }
+
+.servicos__caps .card h3 { margin-bottom: 0.5rem; color: var(--cor-primaria); }
+.servicos__lista {
+  list-style: none;
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+.servicos__lista li {
+  font-family: var(--fonte-mono);
+  font-size: 0.78rem;
+  color: var(--cor-texto-muted);
+  padding-left: 1rem;
+  position: relative;
+}
+.servicos__lista li::before {
+  content: '·';
+  position: absolute;
+  left: 0;
+  color: var(--cor-primaria);
+}
+
+
+.processo__steps {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.processo__step {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+}
+.processo__num {
+  font-family: var(--fonte-display);
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--cor-primaria);
+  opacity: 0.4;
+  line-height: 1;
+  flex-shrink: 0;
+  width: 42px;
+}
+.processo__step h3 { margin-bottom: 0.3rem; }
+</style>

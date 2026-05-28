@@ -1,0 +1,204 @@
+---
+const ano = new Date().getFullYear();
+---
+
+<footer class="footer">
+  <div class="container footer__inner">
+
+    <div class="footer__col footer__col--principal">
+      <div class="footer__logo">
+        <img src="/mh_main_logo.svg" alt="ModuHub Tecnologia" class="footer__logo-img" />
+      </div>
+      <p class="footer__desc">
+        Pesquisa, desenvolvimento e produção de soluções em eletrônica embarcada —
+        hardware, firmware e software. Da instrumentação ao silício.
+      </p>
+      <a href="https://github.com/moduhub" target="_blank" rel="noopener" class="footer__github">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
+        </svg>
+        github.com/moduhub
+      </a>
+    </div>
+
+    <div class="footer__col">
+      <h4>Navegação</h4>
+      <ul>
+        <li><a href="/sobre">Sobre a empresa</a></li>
+        <li><a href="/produtos">Produtos</a></li>
+        <li><a href="/servicos">Serviços de P&amp;D</a></li>
+        <li><a href="/semicondutores">Iniciativas em Semicondutores</a></li>
+        <li><a href="/contato">Contato</a></li>
+      </ul>
+    </div>
+
+    <div class="footer__col">
+      <h4>Segmentos</h4>
+      <ul>
+        <li>Energia e Smart Grid</li>
+        <li>Saúde e Biossensores</li>
+        <li>Agronegócio</li>
+        <li>Segurança Eletrônica</li>
+        <li>Indústria e IoT</li>
+        <li>Automotivo</li>
+      </ul>
+    </div>
+
+    <div class="footer__col">
+      <h4>Contato</h4>
+      <ul class="footer__contato">
+        <li>
+          <span class="footer__contato-label">Localização</span>
+          Rodovia BR-280<br/>Mafra — Santa Catarina
+        </li>
+        <li>
+          <span class="footer__contato-label">WhatsApp</span>
+          <a href="#" class="whatsapp-link" data-encoded="bzFkOXk2MDQwMzk2">Clique para revelar</a>
+        </li>
+        <li>
+          <span class="footer__contato-label">E-mail</span>
+          <a href="mailto:contato@moduhub.com">contato@moduhub.com</a>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="footer__bottom">
+    <div class="container">
+      <span>© {ano} ModuHub Tecnologia LTDA — CNPJ em exibição opcional</span>
+      <span class="footer__apoio">
+        Com apoio de <strong>FAPESC</strong> · <strong>FINEP</strong>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<style>
+.footer {
+  background: var(--cor-fundo-2);
+  border-top: 1px solid var(--cor-borda);
+  margin-top: 4rem;
+}
+
+.footer__inner {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1.2fr;
+  gap: 3rem;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+.footer__logo {
+  margin-bottom: 1rem;
+}
+.footer__logo-img {
+  height: 24px;
+  width: auto;
+  opacity: 0.85;
+}
+
+.footer__desc {
+  font-size: 0.88rem;
+  margin-bottom: 1.25rem;
+  color: var(--cor-texto-muted);
+  line-height: 1.6;
+}
+
+.footer__github {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--fonte-mono);
+  font-size: 0.8rem;
+  color: var(--cor-texto-dim);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.footer__github:hover { color: var(--cor-primaria); }
+
+.footer__col h4 {
+  font-family: var(--fonte-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--cor-texto-muted);
+  margin-bottom: 1rem;
+}
+
+.footer__col ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.footer__col ul li,
+.footer__col ul a {
+  font-size: 0.88rem;
+  color: var(--cor-texto-dim);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.footer__col ul a:hover { color: var(--cor-primaria); }
+
+.footer__contato { gap: 1rem !important; }
+.footer__contato li { line-height: 1.5; }
+.footer__contato-label {
+  display: block;
+  font-family: var(--fonte-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--cor-texto-muted);
+  margin-bottom: 0.15rem;
+}
+
+.footer__bottom {
+  border-top: 1px solid var(--cor-borda);
+  padding: 1.25rem 0;
+}
+
+.footer__bottom .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  font-size: 0.78rem;
+  color: var(--cor-texto-muted);
+  font-family: var(--fonte-mono);
+}
+
+.footer__apoio strong { color: var(--cor-texto-dim); }
+
+@media (max-width: 900px) {
+  .footer__inner {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+  .footer__col--principal { grid-column: 1 / -1; }
+}
+
+@media (max-width: 600px) {
+  .footer__inner { grid-template-columns: 1fr; }
+  .footer__bottom .container { flex-direction: column; align-items: flex-start; }
+}
+</style>
+
+<script>
+  // Decodificar WhatsApp protegido contra bots
+  document.querySelectorAll('.whatsapp-link').forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const encoded = link.getAttribute('data-encoded');
+      const decoded = atob(encoded); // base64 decode
+      const phone = decoded.replace('bz', '55'); // decodificar prefixo
+      link.href = `https://wa.me/${phone}`;
+      link.textContent = `(47) 9${decoded.slice(3, 8)}-${decoded.slice(8)}`;
+      link.target = '_blank';
+      link.rel = 'noopener';
+      link.click();
+    });
+  });
+</script>

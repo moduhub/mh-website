@@ -1,0 +1,82 @@
+backend:
+  name: github
+  repo: SEU-USUARIO/moduhub-site   # ← substitua pelo seu usuário GitHub
+  branch: main
+
+# Pasta onde as imagens enviadas pelo CMS ficam salvas
+media_folder: public/images/uploads
+public_folder: /images/uploads
+
+# Habilitar rascunhos antes de publicar (opcional)
+# publish_mode: editorial_workflow
+
+collections:
+
+  # ─────────────────────────────────────
+  # PRODUTOS
+  # ─────────────────────────────────────
+  - name: produtos
+    label: Produtos
+    label_singular: Produto
+    folder: src/content/produtos
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: Nome,        name: title,       widget: string }
+      - { label: Subtítulo,   name: subtitulo,   widget: string }
+      - label: Segmento
+        name: segmento
+        widget: select
+        options: [Energia, Saúde, Agronegócio, IoT, Software Open Source, Instrumentação]
+      - label: Status
+        name: status
+        widget: select
+        options: [Comercializado, Em desenvolvimento, Disponível, Open Source]
+      - { label: Patente submetida, name: patente, widget: boolean, default: false }
+      - { label: Link GitHub,       name: github,  widget: string,  required: false }
+      - { label: Imagem,            name: imagem,  widget: image,   required: false }
+      - { label: Descrição curta,   name: descricao, widget: text }
+      - label: Especificações
+        name: specs
+        widget: list
+        field: { label: Item, name: item, widget: string }
+      - { label: Destaque (ex: "Fornecido à CELESC"), name: destaque, widget: string }
+      - { label: Conteúdo completo, name: body,    widget: markdown, required: false }
+
+  # ─────────────────────────────────────
+  # PROJETOS / CASES
+  # ─────────────────────────────────────
+  - name: projetos
+    label: Cases / Projetos
+    label_singular: Projeto
+    folder: src/content/projetos
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: Título,    name: title,    widget: string }
+      - { label: Cliente,   name: cliente,  widget: string }
+      - { label: Período,   name: periodo,  widget: string, hint: "Ex: 2020–2022" }
+      - label: Segmento
+        name: segmento
+        widget: select
+        options: [Energia, Saúde, Agronegócio, Segurança, Automotivo, Indústria, IoT]
+      - { label: Fomento,      name: fomento,   widget: string, required: false }
+      - { label: Descrição,    name: descricao, widget: text }
+      - { label: Conteúdo,     name: body,      widget: markdown, required: false }
+
+  # ─────────────────────────────────────
+  # CONFIGURAÇÕES DO SITE
+  # ─────────────────────────────────────
+  - name: config
+    label: Configurações do Site
+    files:
+      - label: Informações gerais
+        name: geral
+        file: src/content/config/geral.json
+        fields:
+          - { label: Slogan principal,   name: slogan,   widget: string }
+          - { label: Descrição (SEO),    name: descricao, widget: text }
+          - { label: E-mail de contato,  name: email,     widget: string }
+          - { label: WhatsApp,           name: whatsapp,  widget: string }
+          - { label: GitHub URL,         name: github,    widget: string }
+          - { label: Endereço,           name: endereco,  widget: string }

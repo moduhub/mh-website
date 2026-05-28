@@ -1,0 +1,373 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base
+  title="Infraestrutura"
+  description="Infraestrutura técnica da ModuHub: laboratório de RF com VNA, osciloscópio de sinal misto, workstations EDA, kits FPGA, laboratório de química e sede própria em Mafra/SC."
+  canonical="/infraestrutura"
+>
+
+  <div class="page-hero">
+    <div class="container">
+      <span class="label-secao">Capacidade instalada</span>
+      <h1>Infraestrutura para<br/>P&amp;D de ponta a ponta</h1>
+      <p class="page-hero__desc">
+        Sede própria de ~70 m² regularizada para operação industrial de pequeno porte,
+        com laboratório de eletrônica, instrumentos de RF, ambiente EDA completo e
+        laboratório de química.
+      </p>
+    </div>
+  </div>
+
+  <!-- Laboratório de Eletrônica -->
+  <section>
+    <div class="container">
+      <span class="label-secao">Laboratório de eletrônica</span>
+      <h2>Montagem, medição e caracterização</h2>
+
+      <div class="infra__grid" style="margin-top:2.5rem">
+
+        <div class="card infra__item">
+          <div class="infra__foto-placeholder">
+            {/* FOTO: Osciloscópio Rigol MSO5354 no bancada */}
+            <span>OSC</span>
+          </div>
+          <div>
+            <h3>Osciloscópio de Sinal Misto<br/>Rigol MSO5354</h3>
+            <ul class="infra__specs">
+              <li>Largura de banda: 350 MHz</li>
+              <li>Taxa de amostragem: 8 GSa/s</li>
+              <li>Analisador lógico integrado</li>
+              <li>Analisador de espectro integrado</li>
+              <li>Decodificação de protocolos seriais (I²C, SPI, UART, CAN)</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="card infra__item">
+          <div class="infra__foto-placeholder">
+            {/* FOTO: Analisador de espectro Rigol RSA3030N */}
+            <span>VNA</span>
+          </div>
+          <div>
+            <h3>Analisador de Espectro em Tempo Real<br/>Rigol RSA3030N</h3>
+            <ul class="infra__specs">
+              <li>Cobertura: 9 kHz a 3 GHz</li>
+              <li>Modo VNA integrado</li>
+              <li>Parâmetros S11, S21</li>
+              <li>Distance-to-Fault (DTF)</li>
+              <li>Análise em tempo real e rastreamento</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="card infra__item">
+          <div class="infra__foto-placeholder">
+            {/* FOTO: Bancada de montagem SMD */}
+            <span>SMD</span>
+          </div>
+          <div>
+            <h3>Bancada de Prototipagem</h3>
+            <ul class="infra__specs">
+              <li>Estação de solda de precisão</li>
+              <li>Retrabalho com ar quente</li>
+              <li>Porta-stencil para pasta de solda</li>
+              <li>Multímetros de bancada</li>
+              <li>Fixture de teste funcional pass/fail</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="card infra__item">
+          <div class="infra__foto-placeholder">
+            {/* FOTO: Impressora 3D e fresadora */}
+            <span>FAB</span>
+          </div>
+          <div>
+            <h3>Prototipagem Mecânica</h3>
+            <ul class="infra__specs">
+              <li>Impressão 3D (FDM)</li>
+              <li>Fresagem de metais macios (alumínio)</li>
+              <li>Projeto mecânico em SolidWorks</li>
+              <li>Integração eletromecânica</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Ambiente EDA -->
+  <section style="background:var(--cor-fundo-2)">
+    <div class="container">
+      <span class="label-secao">Design de Semicondutores</span>
+      <h2>Ambiente EDA open-source completo</h2>
+      <p style="max-width:560px; margin:1rem 0 2.5rem">
+        Fluxo de design baseado em ferramentas open-source consolidadas no ecossistema
+        de microeletrônica, operando em servidor dedicado.
+      </p>
+
+      <div class="grid-2">
+
+        <div>
+          <h3 style="margin-bottom:1.25rem; color:var(--cor-primaria)">Ferramentas EDA</h3>
+          <div class="eda__ferramentas">
+            {[
+              { nome: 'Xschem',    uso: 'Captura esquemática analógica' },
+              { nome: 'Ngspice',   uso: 'Simulação SPICE' },
+              { nome: 'Magic',     uso: 'Edição de layout' },
+              { nome: 'KLayout',   uso: 'Verificação DRC/LVS e visualização' },
+              { nome: 'OpenLane',  uso: 'Síntese física digital' },
+              { nome: 'OpenROAD',  uso: 'Place & route open-source' },
+              { nome: 'Altium Designer', uso: 'Projeto de PCB — licença permanente' },
+              { nome: 'SolidWorks', uso: 'Projeto mecânico — licença permanente' },
+            ].map(f => (
+              <div class="eda__item">
+                <span class="eda__nome">{f.nome}</span>
+                <span class="eda__uso">{f.uso}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <h3 style="margin-bottom:1.25rem; color:var(--cor-primaria)">Hardware de Desenvolvimento</h3>
+          <div class="card infra__hw">
+            <div class="infra__foto-placeholder infra__foto-placeholder--sm">
+              {/* FOTO: Workstations Dell Precision */}
+              <span>WS</span>
+            </div>
+            <div>
+              <h4>Workstations Dell Precision T3680</h4>
+              <ul class="infra__specs">
+                <li>2× Intel Core i7-14700 (20 núcleos)</li>
+                <li>GPU NVIDIA T1000 (certificada para EDA)</li>
+                <li>Servidor dedicado com OpenLane, Magic, KLayout, Ngspice</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="card infra__hw" style="margin-top:1rem">
+            <div class="infra__foto-placeholder infra__foto-placeholder--sm infra__foto-placeholder--2">
+              {/* FOTO: Kits FPGA DE10-Lite e DE2-115 */}
+              <span>FPGA</span>
+            </div>
+            <div>
+              <h4>Kits FPGA Intel/Altera</h4>
+              <ul class="infra__specs">
+                <li>DE10-Lite — prototipagem de soft cores RISC-V</li>
+                <li>DE2-115 — verificação e validação arquitetural</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="card" style="margin-top:1rem; padding:1.25rem">
+            <h4 style="margin-bottom:0.5rem">PDKs disponíveis</h4>
+            <div style="display:flex; gap:0.5rem; flex-wrap:wrap">
+              <span class="tag">SKY130 (SkyWater)</span>
+              <span class="tag">SG13G2 — IHP BiCMOS 130nm</span>
+              <span class="tag tag--muted">Apache 2.0</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Laboratório de Química -->
+  <section>
+    <div class="container">
+      <span class="label-secao">Laboratório de Química</span>
+      <h2>Caracterização eletroquímica</h2>
+      <p style="max-width:560px; margin:1rem 0 2.5rem">
+        Infraestrutura que viabilizou o desenvolvimento e a caracterização de amostras
+        para o projeto FAPESC Mulheres+TEC (OpenAFE).
+      </p>
+      <div class="grid-3">
+        <div class="card">
+          <div class="infra__foto-placeholder infra__foto-placeholder--sm">
+            {/* FOTO: Balança de precisão */}
+            <span>BAL</span>
+          </div>
+          <h3>Balança de Precisão</h3>
+          <p>Para preparação de soluções e caracterização de eletrodos.</p>
+        </div>
+        <div class="card">
+          <div class="infra__foto-placeholder infra__foto-placeholder--sm">
+            {/* FOTO: Destilador de água */}
+            <span>H₂O</span>
+          </div>
+          <h3>Destilador de Água</h3>
+          <p>Produção de água ultrapura para reagentes eletroquímicos.</p>
+        </div>
+        <div class="card">
+          <div class="infra__foto-placeholder infra__foto-placeholder--sm">
+            {/* FOTO: Hotplate com agitador */}
+            <span>HP</span>
+          </div>
+          <h3>Hotplate com Agitador</h3>
+          <p>Preparação e aquecimento controlado de soluções.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sede -->
+  <section style="background:var(--cor-fundo-2)">
+    <div class="container">
+      <span class="label-secao">Instalações</span>
+      <h2>Sede própria regularizada</h2>
+      <div class="grid-2">
+        <div>
+          <p>
+            A ModuHub opera em sede própria de aproximadamente 70 m² em Mafra, Santa Catarina,
+            regularizada para operação industrial de pequeno porte. Essa regularização viabiliza
+            a fabricação de lotes piloto de produtos eletrônicos com segurança jurídica e
+            sem custos fixos de locação.
+          </p>
+          <p style="margin-top:1rem">
+            A estrutura concentra em um único espaço laboratório de eletrônica, bancada de
+            montagem SMD, instrumentação de RF, ambiente EDA, laboratório de química e
+            estoque de componentes — eliminando dependência de espaços terceiros para
+            desenvolvimento de ponta a ponta.
+          </p>
+          <div style="margin-top:1.5rem">
+            <span class="tag">Mafra — Santa Catarina</span>
+            <span class="tag" style="margin-left:0.5rem">Rodovia BR-280</span>
+          </div>
+        </div>
+        <div class="infra__mapa-placeholder">
+          {/* FOTO: foto externa ou interna da sede */}
+          <span>FOTO SEDE</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</Base>
+
+<style>
+.page-hero {
+  padding: 10rem 0 5rem;
+  background: linear-gradient(180deg, rgba(0,194,255,0.05) 0%, transparent 100%);
+  border-bottom: 1px solid var(--cor-borda);
+}
+.page-hero__desc { max-width: 600px; font-size: 1.1rem; margin-top: 1.25rem; }
+
+.infra__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.25rem;
+}
+
+.infra__item {
+  display: flex;
+  gap: 1.25rem;
+  align-items: flex-start;
+}
+
+.infra__foto-placeholder {
+  width: 80px; height: 80px;
+  border-radius: 6px;
+  background: rgba(0,194,255,0.08);
+  border: 1px solid var(--cor-borda);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--fonte-mono);
+  font-size: 0.7rem;
+  color: var(--cor-texto-muted);
+  flex-shrink: 0;
+  letter-spacing: 0.06em;
+}
+
+.infra__foto-placeholder--sm {
+  width: 56px; height: 56px;
+  font-size: 0.6rem;
+}
+
+.infra__foto-placeholder--2 {
+  background: rgba(0,255,157,0.06);
+}
+
+.infra__item h3 { font-size: 0.95rem; margin-bottom: 0.75rem; }
+
+.infra__specs {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.infra__specs li {
+  font-size: 0.83rem;
+  color: var(--cor-texto-muted);
+  padding-left: 1rem;
+  position: relative;
+}
+
+.infra__specs li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--cor-primaria-dim);
+  font-size: 0.7rem;
+}
+
+.eda__ferramentas {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.eda__item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.6rem 1rem;
+  background: var(--cor-fundo-card);
+  border: 1px solid var(--cor-borda);
+  border-radius: 4px;
+  gap: 1rem;
+}
+
+.eda__nome {
+  font-family: var(--fonte-mono);
+  font-size: 0.82rem;
+  color: var(--cor-primaria);
+  flex-shrink: 0;
+}
+
+.eda__uso {
+  font-size: 0.8rem;
+  color: var(--cor-texto-muted);
+  text-align: right;
+}
+
+.infra__hw {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  padding: 1.25rem;
+}
+.infra__hw h4 { margin-bottom: 0.5rem; font-size: 0.95rem; }
+
+.infra__mapa-placeholder {
+  height: 260px;
+  border-radius: 8px;
+  background: var(--cor-fundo-card);
+  border: 1px solid var(--cor-borda);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--fonte-mono);
+  font-size: 0.75rem;
+  color: var(--cor-texto-muted);
+  letter-spacing: 0.1em;
+}
+
+@media (max-width: 600px) {
+  .infra__item { flex-direction: column; }
+}
+</style>

@@ -1,0 +1,330 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base
+  title="Contato"
+  description="Entre em contato com a ModuHub Tecnologia para parcerias de P&D, informações sobre produtos ou oportunidades de co-desenvolvimento."
+  canonical="/contato"
+>
+
+  <div class="page-hero">
+    <div class="container">
+      <span class="label-secao">Fale conosco</span>
+      <h1>Vamos conversar<br/>sobre seu projeto</h1>
+      <p class="page-hero__desc">
+        Estamos disponíveis para discutir parcerias de P&amp;D, fornecimento de produtos,
+        co-desenvolvimento e oportunidades de investimento.
+      </p>
+    </div>
+  </div>
+
+  <section>
+    <div class="container contato__inner">
+
+      <!-- Formulário -->
+      <div class="contato__form-wrapper">
+        <h2>Envie uma mensagem</h2>
+        <p class="contato__form-desc">
+          Responderemos em até 1 dia útil.
+        </p>
+
+        <!-- Netlify Forms: atributo netlify + name identificam o form -->
+        <form
+          name="contato"
+          method="POST"
+          data-netlify="true"
+          netlify-honeypot="bot-field"
+          class="contato__form"
+          id="contatoForm"
+        >
+          <input type="hidden" name="form-name" value="contato" />
+          <!-- Honeypot antispam -->
+          <div style="display:none">
+            <label>Não preencha este campo: <input name="bot-field" /></label>
+          </div>
+
+          <div class="form__grupo">
+            <label for="nome">Nome *</label>
+            <input type="text" id="nome" name="nome" required placeholder="Seu nome completo" />
+          </div>
+
+          <div class="form__grupo">
+            <label for="empresa">Empresa / Instituição</label>
+            <input type="text" id="empresa" name="empresa" placeholder="Nome da empresa ou instituição" />
+          </div>
+
+          <div class="form__grupo">
+            <label for="email">E-mail *</label>
+            <input type="email" id="email" name="email" required placeholder="seu@email.com" />
+          </div>
+
+          <div class="form__grupo">
+            <label for="telefone">Telefone / WhatsApp</label>
+            <input type="tel" id="telefone" name="telefone" placeholder="(47) 9 9999-9999" />
+          </div>
+
+          <div class="form__grupo">
+            <label for="assunto">Assunto *</label>
+            <select id="assunto" name="assunto" required>
+              <option value="" disabled selected>Selecione o motivo do contato</option>
+              <option value="parceria-pd">Parceria de P&amp;D</option>
+              <option value="produto-amperimetro">Produto — Amperímetro Fiscal</option>
+              <option value="produto-openafe">Produto — OpenAFE / Potenciostato</option>
+              <option value="produto-btcore">Produto — Módulo btcore</option>
+              <option value="semicondutores">Iniciativas em Semicondutores</option>
+              <option value="investimento">Investimento</option>
+              <option value="outro">Outro</option>
+            </select>
+          </div>
+
+          <div class="form__grupo form__grupo--full">
+            <label for="mensagem">Mensagem *</label>
+            <textarea
+              id="mensagem"
+              name="mensagem"
+              required
+              rows="5"
+              placeholder="Descreva brevemente seu projeto, necessidade ou interesse..."
+            ></textarea>
+          </div>
+
+          <button type="submit" class="btn btn--primario form__submit">
+            Enviar mensagem
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M22 2L11 13M22 2L15 22l-4-9-9-4 20-7z"/>
+            </svg>
+          </button>
+        </form>
+      </div>
+
+      <!-- Informações de contato -->
+      <div class="contato__info">
+
+        <div class="card contato__canal">
+          <div class="contato__canal-icone">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.13 1.18 2 2 0 012.11 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.41 7.09a16 16 0 006.5 6.5l.97-.97a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
+            </svg>
+          </div>
+          <div>
+            <h3>WhatsApp</h3>
+            <a href="#" class="whatsapp-link" data-encoded="bzFkOXk2MDQwMzk2">
+              Clique para revelar
+            </a>
+            <p>Resposta rápida em dias úteis</p>
+          </div>
+        </div>
+
+        <div class="card contato__canal">
+          <div class="contato__canal-icone">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+              <polyline points="22,6 12,13 2,6"/>
+            </svg>
+          </div>
+          <div>
+            <h3>E-mail</h3>
+            <a href="mailto:contato@moduhub.com">contato@moduhub.com</a>
+            <p>Para propostas formais e documentação</p>
+          </div>
+        </div>
+
+        <div class="card contato__canal">
+          <div class="contato__canal-icone">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+              <circle cx="12" cy="10" r="3"/>
+            </svg>
+          </div>
+          <div>
+            <h3>Localização</h3>
+            <span>Rodovia BR-280</span>
+            <p>Mafra — Santa Catarina — Brasil</p>
+          </div>
+        </div>
+
+        <div class="card contato__canal">
+          <div class="contato__canal-icone">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+            </svg>
+          </div>
+          <div>
+            <h3>GitHub</h3>
+            <a href="https://github.com/moduhub" target="_blank" rel="noopener">
+              github.com/moduhub
+            </a>
+            <p>Projetos open-source</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</Base>
+
+<script>
+  // Feedback visual após envio (Netlify redireciona por padrão,
+  // mas esta mensagem aparece se o usuário voltar)
+  const form = document.getElementById('contatoForm');
+  const params = new URLSearchParams(window.location.search);
+  if (params.get('enviado') === 'ok') {
+    form?.insertAdjacentHTML('beforebegin', `
+      <div class="form__sucesso">
+        ✓ Mensagem enviada com sucesso! Retornaremos em breve.
+      </div>
+    `);
+  }
+
+  // Decodificar WhatsApp protegido contra bots
+  document.querySelectorAll('.whatsapp-link').forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const encoded = link.getAttribute('data-encoded');
+      const decoded = atob(encoded); // base64 decode
+      const phone = decoded.replace('bz', '55'); // decodificar prefixo
+      link.href = `https://wa.me/${phone}`;
+      link.textContent = `(47) 9${decoded.slice(3, 8)}-${decoded.slice(8)}`;
+      link.target = '_blank';
+      link.rel = 'noopener';
+      link.click();
+    });
+  });
+</script>
+
+<style>
+.page-hero {
+  padding: 10rem 0 5rem;
+  background: linear-gradient(180deg, rgba(0,194,255,0.05) 0%, transparent 100%);
+  border-bottom: 1px solid var(--cor-borda);
+}
+.page-hero__desc { max-width: 600px; font-size: 1.1rem; margin-top: 1.25rem; }
+
+.contato__inner {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+.contato__form-wrapper h2 { margin-bottom: 0.5rem; }
+.contato__form-desc { color: var(--cor-texto-muted); margin-bottom: 2rem; }
+
+.contato__form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+.form__grupo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.form__grupo--full { grid-column: 1 / -1; }
+
+.form__grupo label {
+  font-family: var(--fonte-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--cor-texto-muted);
+}
+
+.form__grupo input,
+.form__grupo select,
+.form__grupo textarea {
+  background: var(--cor-fundo-card);
+  border: 1px solid var(--cor-borda);
+  border-radius: 4px;
+  padding: 0.75rem 1rem;
+  color: var(--cor-texto);
+  font-family: var(--fonte-corpo);
+  font-size: 0.92rem;
+  transition: border-color 0.2s;
+  outline: none;
+  width: 100%;
+}
+
+.form__grupo input::placeholder,
+.form__grupo textarea::placeholder {
+  color: var(--cor-texto-muted);
+}
+
+.form__grupo input:focus,
+.form__grupo select:focus,
+.form__grupo textarea:focus {
+  border-color: var(--cor-primaria-dim);
+}
+
+.form__grupo select option {
+  background: var(--cor-fundo-card);
+}
+
+.form__grupo textarea { resize: vertical; min-height: 120px; }
+
+.form__submit { grid-column: 1 / -1; justify-self: start; margin-top: 0.5rem; }
+
+.form__sucesso {
+  background: rgba(0,255,157,0.1);
+  border: 1px solid var(--cor-acento);
+  color: var(--cor-acento);
+  padding: 1rem 1.5rem;
+  border-radius: 4px;
+  margin-bottom: 1.5rem;
+  font-family: var(--fonte-mono);
+  font-size: 0.88rem;
+}
+
+.contato__info {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  position: sticky;
+  top: 6rem;
+}
+
+.contato__canal {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.contato__canal-icone {
+  width: 40px; height: 40px;
+  border-radius: 6px;
+  background: rgba(0,194,255,0.08);
+  border: 1px solid var(--cor-borda);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--cor-primaria);
+  flex-shrink: 0;
+}
+
+.contato__canal h3 {
+  font-size: 0.95rem;
+  margin-bottom: 0.2rem;
+}
+.contato__canal a {
+  font-size: 0.9rem;
+  color: var(--cor-primaria);
+  display: block;
+  margin-bottom: 0.2rem;
+}
+.contato__canal p {
+  font-size: 0.78rem;
+  color: var(--cor-texto-muted);
+  margin: 0;
+}
+
+@media (max-width: 900px) {
+  .contato__inner { grid-template-columns: 1fr; }
+  .contato__info  { position: static; }
+}
+
+@media (max-width: 600px) {
+  .contato__form { grid-template-columns: 1fr; }
+}
+</style>

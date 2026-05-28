@@ -1,0 +1,218 @@
+/* ===========================
+   MODUHUB — GLOBAL STYLES
+   =========================== */
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500&display=swap');
+
+:root {
+  /* Cores */
+  --cor-fundo:        #0a0d0f;
+  --cor-fundo-2:      #0f1418;
+  --cor-fundo-card:   #131920;
+  --cor-borda:        #1e2a34;
+  --cor-borda-hover:  #2e4055;
+  --cor-primaria:     #00c2ff;
+  --cor-primaria-dim: #0087b3;
+  --cor-acento:       #00ff9d;
+  --cor-texto:        #e2eaf0;
+  --cor-texto-dim:    #7a9ab0;
+  --cor-texto-muted:  #3d5468;
+
+  /* Tipografia */
+  --fonte-display: 'Syne', sans-serif;
+  --fonte-mono:    'DM Mono', monospace;
+  --fonte-corpo:   'Inter', sans-serif;
+
+  /* Espaçamentos */
+  --max-width: 1200px;
+  --section-padding: 6rem 2rem;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto);
+  font-family: var(--fonte-corpo);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+/* ── Tipografia ── */
+h1, h2, h3, h4 {
+  font-family: var(--fonte-display);
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--cor-texto);
+}
+
+h1 { font-size: clamp(2.2rem, 5vw, 4rem); }
+h2 { font-size: clamp(1.6rem, 3vw, 2.4rem); }
+h3 { font-size: clamp(1.1rem, 2vw, 1.4rem); }
+
+p { color: var(--cor-texto-dim); }
+
+a {
+  color: var(--cor-primaria);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+a:hover { color: var(--cor-acento); }
+
+/* ── Layout ── */
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+section {
+  padding: var(--section-padding);
+}
+
+/* ── Utilitários ── */
+.tag {
+  display: inline-block;
+  font-family: var(--fonte-mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.75rem;
+  border-radius: 2px;
+  border: 1px solid var(--cor-primaria-dim);
+  color: var(--cor-primaria);
+  background: rgba(0, 194, 255, 0.06);
+}
+
+.tag--acento {
+  border-color: var(--cor-acento);
+  color: var(--cor-acento);
+  background: rgba(0, 255, 157, 0.06);
+}
+
+.tag--muted {
+  border-color: var(--cor-borda);
+  color: var(--cor-texto-muted);
+  background: transparent;
+}
+
+.label-secao {
+  font-family: var(--fonte-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--cor-primaria);
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--fonte-display);
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  padding: 0.75rem 1.75rem;
+  border-radius: 3px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-decoration: none;
+}
+
+.btn--primario {
+  background: var(--cor-primaria);
+  color: #000;
+  border-color: var(--cor-primaria);
+}
+.btn--primario:hover {
+  background: var(--cor-acento);
+  border-color: var(--cor-acento);
+  color: #000;
+}
+
+.btn--outline {
+  background: transparent;
+  color: var(--cor-primaria);
+  border-color: var(--cor-primaria-dim);
+}
+.btn--outline:hover {
+  border-color: var(--cor-primaria);
+  background: rgba(0, 194, 255, 0.08);
+  color: var(--cor-primaria);
+}
+
+/* ── Cards ── */
+.card {
+  background: var(--cor-fundo-card);
+  border: 1px solid var(--cor-borda);
+  border-radius: 6px;
+  padding: 2rem;
+  transition: border-color 0.2s, transform 0.2s;
+}
+.card:hover {
+  border-color: var(--cor-borda-hover);
+  transform: translateY(-2px);
+}
+
+/* ── Linha decorativa ── */
+.linha-h {
+  border: none;
+  border-top: 1px solid var(--cor-borda);
+  margin: 3rem 0;
+}
+
+/* ── Grid responsivo ── */
+.grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+.grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; }
+.grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; }
+
+/* ── Animações ── */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.anim-entrada {
+  animation: fadeInUp 0.6s ease both;
+}
+.anim-delay-1 { animation-delay: 0.1s; }
+.anim-delay-2 { animation-delay: 0.2s; }
+.anim-delay-3 { animation-delay: 0.3s; }
+.anim-delay-4 { animation-delay: 0.4s; }
+
+/* ── Barra de progresso no topo ── */
+.progress-bar {
+  position: fixed;
+  top: 0; left: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--cor-primaria), var(--cor-acento));
+  z-index: 9999;
+  transition: width 0.1s;
+}
+
+/* ── Prose (conteúdo markdown) ── */
+.prose h2 { margin: 2rem 0 1rem; }
+.prose h3 { margin: 1.5rem 0 0.75rem; color: var(--cor-primaria); }
+.prose p  { margin-bottom: 1rem; }
+.prose ul { margin: 1rem 0 1rem 1.5rem; }
+.prose li { margin-bottom: 0.4rem; color: var(--cor-texto-dim); }
+.prose strong { color: var(--cor-texto); font-weight: 500; }
+
+/* ── Responsivo mobile ── */
+@media (max-width: 768px) {
+  :root { --section-padding: 4rem 1.25rem; }
+  .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+}
