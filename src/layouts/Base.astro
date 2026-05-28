@@ -79,6 +79,9 @@ const ogImage = image.startsWith('http') ? image : `${siteUrl}${image}`;
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
+  <!-- Netlify Identity Widget: processa convites e reset de senha -->
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
   <!-- Preconnect fontes -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -89,6 +92,18 @@ const ogImage = image.startsWith('http') ? image : `${siteUrl}${image}`;
     <slot />
   </main>
   <Footer />
+
+  <!-- Redireciona para /admin após login via convite ou reset de senha -->
+  <script>
+    const ni = (window as any).netlifyIdentity;
+    if (ni) {
+      ni.on('init', (user: any) => {
+        if (!user) {
+          ni.on('login', () => { document.location.href = '/admin/'; });
+        }
+      });
+    }
+  </script>
 
   <!-- Barra de leitura no topo -->
   <div class="progress-bar" id="progressBar"></div>
