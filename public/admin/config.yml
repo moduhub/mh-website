@@ -1,6 +1,5 @@
 backend:
-  name: github
-  repo: moduhub/mh-website
+  name: git-gateway
   branch: main
 
 # Pasta onde as imagens enviadas pelo CMS ficam salvas
