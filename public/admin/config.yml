@@ -40,7 +40,7 @@ collections:
         name: specs
         widget: list
         field: { label: Item, name: item, widget: string }
-      - { label: Destaque (ex: "Fornecido à CELESC"), name: destaque, widget: string }
+      - { label: 'Destaque (ex: "Fornecido à CELESC")', name: destaque, widget: string }
       - { label: Conteúdo completo, name: body,    widget: markdown, required: false }
 
   # ─────────────────────────────────────
