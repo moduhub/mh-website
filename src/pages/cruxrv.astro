@@ -1,0 +1,306 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base
+  title="CRUXRV — Microcontrolador RISC-V Radio-Native"
+  description="CRUXRV é um microcontrolador de concepção brasileira onde rádio e inferência de IA são arquitetura — não periféricos. Desenvolvido em CMOS 130nm com ferramentas EDA open-source."
+  canonical="/cruxrv"
+>
+
+  <!-- HERO -->
+  <div class="page-hero page-hero--semi">
+    <div class="container">
+      <span class="label-secao">Design de Circuitos Integrados · SKY130 · RISC-V</span>
+      <h1 class="semi__hero-title">CRUXRV</h1>
+      <p class="semi__hero-sub">
+        Um microcontrolador onde rádio e inferência de IA<br/>
+        são arquitetura — não periféricos acoplados.
+      </p>
+      <p class="page-hero__desc">
+        Desenvolvido pela ModuHub sobre ferramentas EDA open-source e fabricado
+        via foundry CMOS 130nm. Core RISC-V próprio validado em FPGA.
+        Tapeout SKY130 realizado.
+      </p>
+      <div style="display:flex; gap:0.75rem; flex-wrap:wrap; margin-top:2rem">
+        <span class="tag">Tapeout SKY130 ✓</span>
+        <span class="tag">RISC-V em FPGA ✓</span>
+        <span class="tag tag--acento">Validado tecnicamente pela FINEP</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- POR QUE AGORA -->
+  <section>
+    <div class="container semi__janela">
+      <div>
+        <span class="label-secao">Por que agora</span>
+        <h2>Três fatores criaram<br/>esta janela ao mesmo tempo</h2>
+      </div>
+      <div class="semi__janela-grid">
+
+        <div class="card semi__fator">
+          <div class="semi__fator-num">01</div>
+          <h3>RISC-V maduro e sem royalties</h3>
+          <p>
+            A arquitetura ISA aberta chegou à maturidade de ecossistema — compiladores,
+            RTOS, ferramentas de debug — sem os royalties que encarecem e restringem
+            designs baseados em ARM. Desenvolvimento nacional viável pela primeira vez
+            sem licença de arquitetura.
+          </p>
+        </div>
+
+        <div class="card semi__fator">
+          <div class="semi__fator-num">02</div>
+          <h3>PDKs open-source em foundry real</h3>
+          <p>
+            SKY130 (SkyWater, 130nm) e IHP SG13G2 (130nm BiCMOS) oferecem PDKs com
+            licença Apache 2.0 e acesso a shuttles MPW. Um primeiro tapeout analógico
+            ficou na faixa de US$ 10–12k — ordem de grandeza abaixo do que era possível
+            há cinco anos.
+          </p>
+        </div>
+
+        <div class="card semi__fator">
+          <div class="semi__fator-num">03</div>
+          <h3>Tributação criando vantagem estrutural</h3>
+          <p>
+            A Resolução GECEX 852/2026 elevou o imposto de importação sobre microcontroladores
+            de 0% para 7,2%, com efeito cascata em IPI, PIS/COFINS e ICMS estadual.
+            Silicon nacional elimina esse overhead por origem — vantagem permanente,
+            não especulativa.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- A ARQUITETURA -->
+  <section style="background:var(--cor-fundo-2)">
+    <div class="container">
+      <span class="label-secao">Arquitetura</span>
+      <h2>Rádio e IA como arquitetura.<br/>Não como periféricos.</h2>
+      <p class="semi__arq-intro">
+        A maioria dos MCUs com rádio conecta um front-end RF via SPI ou I²C —
+        com overhead de protocolo, latência não-determinística e CPU
+        compartilhada entre aplicação e stack de rádio.
+        No CRUXRV, processamento de sinais e inferência são capacidades nativas
+        do core: não há fronteira de barramento, não há coprocessador heterogêneo.
+      </p>
+
+      <div class="semi__caps">
+
+        <div class="card semi__cap">
+          <span class="semi__cap-label">Processamento de sinais</span>
+          <h3>Diretamente no pipeline do processador</h3>
+          <p>
+            Filtros digitais, modulação e demodulação, análise espectral e
+            funções trigonométricas são operações de primeira classe no core —
+            não bibliotecas de software rodando em cima de um processador genérico.
+          </p>
+          <ul class="semi__cap-lista">
+            <li>Filtros FIR e decimação CIC</li>
+            <li>Modulação e demodulação digital</li>
+            <li>FFT e análise espectral em tempo real</li>
+            <li>Funções trigonométricas, conversão polar/cartesiana</li>
+            <li>Geração digital de portadora (NCO)</li>
+          </ul>
+        </div>
+
+        <div class="card semi__cap">
+          <span class="semi__cap-label">Inferência de IA em borda</span>
+          <h3>Decisão local sem dependência de conectividade</h3>
+          <p>
+            Aceleração para algoritmos de inferência com precisão limitada —
+            o perfil de workload de redes neurais embarcadas — sem transferência
+            de dados para fora do chip.
+          </p>
+          <ul class="semi__cap-lista">
+            <li>Operações INT8 e INT4</li>
+            <li>Funções de ativação (ReLU e variantes)</li>
+            <li>Redes densas (DNN) e convolucionais (CNN)</li>
+            <li>Inferência sobre features espectrais do rádio</li>
+            <li>Latência determinística para aplicações de controle</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="semi__arq-infra">
+
+        <div class="card semi__infra-card">
+          <h3>Memória de programa — XIP sobre QSPI</h3>
+          <p>
+            NOR QSPI externa com Execute-in-Place e I-cache on-chip — a mesma
+            arquitetura do ESP32 e SiFive FE310. Flash embarcada em PDKs open-source
+            exige acordo comercial com a foundry; esta solução é madura, auditável
+            e adiciona menos de US$ 0,50 ao BOM. OTA nativo sem risco de brick,
+            tamanho configurável por produto.
+          </p>
+        </div>
+
+        <div class="card semi__infra-card">
+          <h3>Zephyr RTOS — suporte nativo</h3>
+          <p>
+            O CRUXRV é desenvolvido com suporte ao Zephyr RTOS como alvo primário.
+            Drivers de periférico em desenvolvimento no mesmo fluxo do RTL —
+            o ecossistema de aplicação cresce junto com o hardware, não depois.
+            Toolchain GCC RISC-V, debug via JTAG/OpenOCD.
+          </p>
+        </div>
+
+        <div class="card semi__infra-card">
+          <h3>Arquitetura multicore orientada a memória</h3>
+          <p>
+            Cada núcleo opera sobre sua própria memória local — os dados não percorrem
+            hierarquias de cache nem protocolos de coerência. O sinal de rádio entra
+            como fluxo contínuo diretamente no pipeline de processamento; resultados
+            intermediários permanecem acoplados ao núcleo que os gerou.
+            Paralelismo por replicação de unidades simples, não por crescimento de
+            complexidade de um core único.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-final">
+    <div class="container cta-final__inner">
+      <div>
+        <h2>Parceiros, investidores<br/>e co-desenvolvimento</h2>
+        <p>
+          Estamos construindo parcerias com fabricantes que querem eliminar
+          dependência de supply chain importado e com investidores que entendem
+          a janela do deep-tech nacional em semicondutores.
+        </p>
+      </div>
+      <div class="cta-final__acoes">
+        <a href="/contato" class="btn btn--primario">Entrar em contato</a>
+        <a href="#" class="whatsapp-link btn btn--outline" data-encoded="bzFkOXk2MDQwMzk2">WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+<script>
+  document.querySelectorAll<HTMLAnchorElement>('.whatsapp-link').forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const encoded = link.getAttribute('data-encoded') ?? '';
+      const decoded = atob(encoded);
+      const phone = decoded.replace('bz', '55');
+      link.href = `https://wa.me/${phone}`;
+      link.textContent = `(47) 9${decoded.slice(3, 8)}-${decoded.slice(8)}`;
+      link.target = '_blank';
+      link.rel = 'noopener';
+      link.click();
+    });
+  });
+</script>
+
+</Base>
+
+<style>
+.page-hero--semi {
+  padding: 10rem 0 6rem;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 0%, rgba(0,194,255,0.08) 0%, transparent 70%);
+  border-bottom: 1px solid var(--cor-borda);
+}
+.semi__hero-title {
+  font-family: var(--fonte-display);
+  font-size: clamp(4rem, 10vw, 8rem);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--cor-primaria);
+  margin: 0.5rem 0 0.75rem;
+}
+.semi__hero-sub {
+  font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+  color: var(--cor-texto);
+  font-weight: 500;
+  margin-bottom: 1rem;
+  line-height: 1.4;
+}
+.page-hero__desc {
+  max-width: 560px;
+  font-size: 1rem;
+  color: var(--cor-texto-muted);
+  margin-top: 0.5rem;
+}
+.semi__janela { display: flex; flex-direction: column; gap: 3rem; }
+.semi__janela-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+.semi__fator { display: flex; flex-direction: column; gap: 0.75rem; }
+.semi__fator-num {
+  font-family: var(--fonte-mono);
+  font-size: 0.75rem;
+  color: var(--cor-primaria);
+  letter-spacing: 0.1em;
+}
+.semi__fator h3 { font-size: 1rem; margin-bottom: 0.25rem; }
+.semi__fator p  { font-size: 0.875rem; color: var(--cor-texto-muted); line-height: 1.6; }
+.semi__arq-intro {
+  max-width: 680px;
+  margin: 1.25rem 0 2.5rem;
+  color: var(--cor-texto-muted);
+  line-height: 1.7;
+}
+.semi__caps {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+.semi__cap { display: flex; flex-direction: column; gap: 0.75rem; }
+.semi__cap-label {
+  font-family: var(--fonte-mono);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--cor-primaria);
+}
+.semi__cap h3 { font-size: 1rem; margin-bottom: 0.1rem; }
+.semi__cap p  { font-size: 0.875rem; color: var(--cor-texto-muted); line-height: 1.6; }
+.semi__cap-lista {
+  list-style: none;
+  padding: 0;
+  margin: 0.25rem 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+.semi__cap-lista li {
+  font-size: 0.85rem;
+  color: var(--cor-texto-muted);
+  padding-left: 1.1rem;
+  position: relative;
+}
+.semi__cap-lista li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--cor-primaria);
+  font-size: 0.75rem;
+}
+.semi__arq-infra {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 0.5rem;
+}
+.semi__infra-card h3 { font-size: 0.9rem; color: var(--cor-primaria); margin-bottom: 0.5rem; }
+.semi__infra-card p  { font-size: 0.825rem; color: var(--cor-texto-muted); line-height: 1.6; }
+@media (max-width: 900px) {
+  .semi__janela-grid { grid-template-columns: 1fr; }
+  .semi__caps        { grid-template-columns: 1fr; }
+  .semi__arq-infra   { grid-template-columns: 1fr; }
+}
+
+</style>
