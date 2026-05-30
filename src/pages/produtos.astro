@@ -55,24 +55,6 @@ const produtos = [
     destaque: 'Sob encomenda — contato: contato@moduhub.com',
     patente: false,
   },
-  {
-    id: 'fieldfare',
-    nome: 'Biblioteca Fieldfare',
-    subtitulo: 'Redes de serviços sem autoridade central',
-    segmento: 'Software Open Source',
-    status: 'Open Source',
-    statusTipo: 'acento',
-    descricao: 'Biblioteca de fonte aberta que oferece uma nova forma de estruturar redes de serviços distribuídos sem dependência de autoridade central, com foco em redes IoT e web3.',
-    specs: [
-      'Dados armazenados como hashmaps content-addressable',
-      'Ambientes de dados replicados entre participantes',
-      'Mudanças versionadas em cadeia verificável',
-      'Compatível com aplicações blockchain e web3',
-    ],
-    destaque: 'github.com/moduhub/fieldfare',
-    patente: false,
-    github: 'https://github.com/moduhub/fieldfare',
-  },
 ];
 ---
 
@@ -130,13 +112,7 @@ const produtos = [
                 </svg>
                 {p.destaque}
               </div>
-              {p.github ? (
-                <a href={p.github} target="_blank" rel="noopener" class="btn btn--outline btn--sm">
-                  Ver no GitHub →
-                </a>
-              ) : (
-                <a href="/contato" class="btn btn--outline btn--sm">Solicitar informações →</a>
-              )}
+              <a href="/contato" class="btn btn--outline btn--sm">Solicitar informações →</a>
             </div>
           </div>
         ))}

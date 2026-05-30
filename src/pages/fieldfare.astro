@@ -1,0 +1,191 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base
+  title="Fieldfare — Redes distribuídas sem autoridade central"
+  description="Fieldfare é uma biblioteca open-source para redes de serviços distribuídos sem servidor central, sem ponto único de falha e com dados content-addressable."
+  canonical="/fieldfare"
+>
+
+  <div class="page-hero">
+    <div class="container">
+      <span class="label-secao">P&amp;D · Software · Redes Distribuídas</span>
+      <h1>Fieldfare</h1>
+      <p class="page-hero__desc">
+        Uma biblioteca open-source que propõe uma nova forma de estruturar
+        redes de serviços distribuídos — sem servidor central, sem autoridade
+        de identidade, sem ponto único de falha.
+      </p>
+      <div style="display:flex; gap:0.75rem; flex-wrap:wrap; margin-top:2rem">
+        <span class="tag tag--acento">Open Source</span>
+        <a
+          href="https://github.com/moduhub/fieldfare"
+          target="_blank"
+          rel="noopener"
+          class="tag tag--link"
+        >github.com/moduhub/fieldfare →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- O PROBLEMA -->
+  <section>
+    <div class="container ff__contexto">
+      <div>
+        <span class="label-secao">Motivação</span>
+        <h2>Aplicações distribuídas com dependência centralizada</h2>
+        <p>
+          A maioria das arquiteturas de IoT e web3 depende de servidores centrais
+          para descoberta de serviços, autenticação e armazenamento — criando
+          pontos de controle que concentram vulnerabilidades de disponibilidade,
+          privacidade e censura.
+        </p>
+        <p>
+          Fieldfare é construído ao redor de uma premissa diferente: dados identificados
+          pelo próprio conteúdo, ambientes replicados entre participantes, e
+          versionamento em cadeia verificável — sem que nenhum nó precise confiar
+          em uma autoridade central para operar.
+        </p>
+      </div>
+      <div class="ff__specs card">
+        <h3>Características técnicas</h3>
+        <ul class="ff__lista">
+          <li>Dados armazenados como hashmaps content-addressable</li>
+          <li>Ambientes de dados replicados entre participantes</li>
+          <li>Mudanças versionadas em cadeia verificável</li>
+          <li>Sem servidor central ou autoridade de identidade</li>
+          <li>Compatível com aplicações blockchain e web3</li>
+          <li>Integração com hardware ModuHub (btcore) em desenvolvimento</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATUS -->
+  <section style="background:var(--cor-fundo-2)">
+    <div class="container">
+      <span class="label-secao">Status</span>
+      <h2>Biblioteca disponível publicamente</h2>
+      <div class="grid-2 ff__status-grid">
+        <div>
+          <p style="color:var(--cor-texto-muted); line-height:1.7">
+            O código-fonte está disponível no GitHub sob licença open-source.
+            O projeto está em desenvolvimento ativo — contribuições, issues
+            e discussões são bem-vindos.
+          </p>
+          <div style="margin-top:1.5rem">
+            <a
+              href="https://github.com/moduhub/fieldfare"
+              target="_blank"
+              rel="noopener"
+              class="btn btn--primario"
+            >Ver no GitHub →</a>
+          </div>
+        </div>
+        <div class="card ff__status-card">
+          <div class="ff__status-item">
+            <span class="ff__status-label">Licença</span>
+            <span>Open Source</span>
+          </div>
+          <div class="ff__status-item">
+            <span class="ff__status-label">Repositório</span>
+            <span>github.com/moduhub/fieldfare</span>
+          </div>
+          <div class="ff__status-item">
+            <span class="ff__status-label">Integração de hardware</span>
+            <span>Em desenvolvimento (btcore)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-final">
+    <div class="container cta-final__inner">
+      <div>
+        <h2>Colaboração e parcerias</h2>
+        <p>
+          Interesse em usar o Fieldfare, contribuir com o projeto ou
+          explorar integração com hardware embarcado?
+        </p>
+      </div>
+      <div class="cta-final__acoes">
+        <a href="/contato" class="btn btn--primario">Entrar em contato</a>
+        <a href="https://github.com/moduhub/fieldfare" target="_blank" rel="noopener" class="btn btn--outline">GitHub →</a>
+      </div>
+    </div>
+  </section>
+
+</Base>
+
+<style>
+.ff__contexto {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+.ff__contexto p {
+  color: var(--cor-texto-muted);
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+.ff__specs h3 { font-size: 0.9rem; color: var(--cor-primaria); margin-bottom: 0.75rem; }
+.ff__lista {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.ff__lista li {
+  font-size: 0.875rem;
+  color: var(--cor-texto-muted);
+  padding-left: 1.1rem;
+  position: relative;
+  line-height: 1.5;
+}
+.ff__lista li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--cor-primaria);
+  font-size: 0.75rem;
+}
+.ff__status-grid { align-items: start; gap: 3rem; }
+.ff__status-card {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.ff__status-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+.ff__status-label {
+  font-family: var(--fonte-mono);
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--cor-texto-muted);
+}
+.ff__status-item span:last-child {
+  font-size: 0.875rem;
+  color: var(--cor-texto);
+}
+.tag--link {
+  text-decoration: none;
+  font-family: var(--fonte-mono);
+  font-size: 0.75rem;
+  transition: color 0.2s;
+}
+.tag--link:hover { color: var(--cor-primaria); }
+@media (max-width: 768px) {
+  .ff__contexto   { grid-template-columns: 1fr; gap: 2rem; }
+  .ff__status-grid { grid-template-columns: 1fr; }
+}
+</style>
