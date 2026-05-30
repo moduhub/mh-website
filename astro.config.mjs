@@ -4,4 +4,8 @@ import sitemap from '@astrojs/sitemap';
 export default defineConfig({
   site: 'https://moduhub.com',
   integrations: [sitemap()],
+  redirects: {
+    '/semicondutores': '/cruxrv',
+    '/pesquisa': '/fieldfare',
+  },
 });

@@ -1,13 +1,18 @@
 ---
 const nav = [
-  { label: 'Sobre',          href: '/sobre' },
-  { label: 'Produtos',       href: '/produtos' },
-  { label: 'Serviços',       href: '/servicos' },
-  { label: 'Semicondutores', href: '/semicondutores' },
-  { label: 'Contato',        href: '/contato' },
+  { label: 'Sobre',    href: '/sobre' },
+  { label: 'Produtos', href: '/produtos' },
+  { label: 'Serviços', href: '/servicos' },
+  { label: 'Contato',  href: '/contato' },
+];
+
+const pd = [
+  { label: 'CRUXRV',    href: '/cruxrv',    desc: 'Microcontrolador RISC-V radio-native' },
+  { label: 'Fieldfare', href: '/fieldfare',  desc: 'Redes distribuídas sem autoridade central' },
 ];
 
 const pathname = Astro.url.pathname;
+const pdAtivo = pd.some(item => pathname.startsWith(item.href));
 ---
 
 <header class="header" id="header">
@@ -26,6 +31,24 @@ const pathname = Astro.url.pathname;
           {item.label}
         </a>
       ))}
+
+      <!-- Dropdown P&D -->
+      <div class={`header__dropdown ${pdAtivo ? 'header__dropdown--ativo' : ''}`} id="pdDropdown">
+        <button class="header__link header__dropdown-btn" id="pdBtn" aria-expanded="false">
+          P&amp;D <span class="header__dropdown-chevron">▾</span>
+        </button>
+        <div class="header__dropdown-menu" id="pdMenu">
+          {pd.map(item => (
+            <a
+              href={item.href}
+              class={`header__dropdown-item ${pathname.startsWith(item.href) ? 'header__dropdown-item--ativo' : ''}`}
+            >
+              <span class="header__dropdown-item-label">{item.label}</span>
+              <span class="header__dropdown-item-desc">{item.desc}</span>
+            </a>
+          ))}
+        </div>
+      </div>
     </nav>
 
     <a href="/contato" class="btn btn--primario header__cta">Fale conosco</a>
@@ -41,16 +64,29 @@ const pathname = Astro.url.pathname;
   const header  = document.getElementById('header');
   const nav     = document.getElementById('nav');
   const menuBtn = document.getElementById('menuBtn');
+  const pdBtn      = document.getElementById('pdBtn');
+  const pdDropdown = document.getElementById('pdDropdown');
 
-  // Scroll: adiciona classe ao header
   window.addEventListener('scroll', () => {
     header?.classList.toggle('header--scrolled', window.scrollY > 40);
   });
 
-  // Menu mobile
   menuBtn?.addEventListener('click', () => {
     nav?.classList.toggle('header__nav--aberto');
     menuBtn.classList.toggle('header__menu-btn--ativo');
+  });
+
+  // Dropdown toggle
+  pdBtn?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const open = pdDropdown?.classList.toggle('header__dropdown--open');
+    pdBtn.setAttribute('aria-expanded', String(open));
+  });
+
+  // Fechar ao clicar fora
+  document.addEventListener('click', () => {
+    pdDropdown?.classList.remove('header__dropdown--open');
+    pdBtn?.setAttribute('aria-expanded', 'false');
   });
 </script>
 
@@ -114,6 +150,78 @@ const pathname = Astro.url.pathname;
 
 .header__link--ativo { color: var(--cor-primaria); }
 
+/* ── Dropdown ── */
+.header__dropdown { position: relative; }
+
+.header__dropdown-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.header__dropdown--ativo .header__dropdown-btn {
+  color: var(--cor-primaria);
+}
+
+.header__dropdown-chevron {
+  font-size: 0.65rem;
+  transition: transform 0.2s;
+  display: inline-block;
+}
+
+.header__dropdown--open .header__dropdown-chevron {
+  transform: rotate(180deg);
+}
+
+.header__dropdown-menu {
+  display: none;
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  right: 0;
+  min-width: 240px;
+  background: var(--cor-fundo-2);
+  border: 1px solid var(--cor-borda);
+  border-radius: 6px;
+  padding: 0.5rem;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+}
+
+.header__dropdown--open .header__dropdown-menu { display: flex; flex-direction: column; gap: 0.25rem; }
+
+.header__dropdown-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  padding: 0.65rem 0.85rem;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background 0.15s;
+}
+
+.header__dropdown-item:hover,
+.header__dropdown-item--ativo {
+  background: rgba(255,255,255,0.06);
+}
+
+.header__dropdown-item-label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--cor-texto);
+}
+
+.header__dropdown-item--ativo .header__dropdown-item-label {
+  color: var(--cor-primaria);
+}
+
+.header__dropdown-item-desc {
+  font-size: 0.75rem;
+  color: var(--cor-texto-muted);
+}
+
+/* ── CTA e menu mobile ── */
 .header__cta {
   flex-shrink: 0;
   font-size: 0.82rem;
@@ -156,8 +264,25 @@ const pathname = Astro.url.pathname;
 
   .header__link { width: 100%; padding: 0.6rem 0.75rem; }
 
-  .header__cta { display: none; }
+  /* Dropdown mobile: sempre expandido dentro do menu */
+  .header__dropdown { width: 100%; }
+  .header__dropdown-btn { width: 100%; padding: 0.6rem 0.75rem; }
+  .header__dropdown-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    position: static;
+    background: none;
+    border: none;
+    box-shadow: none;
+    padding: 0 0 0 1rem;
+    min-width: unset;
+  }
+  .header__dropdown--open .header__dropdown-menu,
+  .header__dropdown-menu { display: flex; } /* sempre visível no mobile */
+  .header__dropdown-chevron { display: none; }
 
+  .header__cta { display: none; }
   .header__menu-btn { display: flex; margin-left: auto; }
 }
 </style>
